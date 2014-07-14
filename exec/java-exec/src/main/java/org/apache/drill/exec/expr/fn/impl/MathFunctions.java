@@ -126,5 +126,33 @@ public class MathFunctions{
         out.value = java.lang.Math.PI;
     }
   }
+  
+  @FunctionTemplate(name = "democeil", scope = FunctionScope.SIMPLE, nulls = NullHandling.NULL_IF_NULL)
+  public static class Float8Ceil implements DrillSimpleFunc{
+   
+    @Param Float8Holder input;
+    @Output Float8Holder out;
+   
+    public void setup(RecordBatch b){}
+   
+    public void eval(){
+      out.value = Math.ceil(input.value);
+    }
+   
+  }
+   
+  @FunctionTemplate(name = "demofloor", scope = FunctionScope.SIMPLE, nulls = NullHandling.NULL_IF_NULL)
+  public static class Float8Floor implements DrillSimpleFunc{
+   
+    @Param Float8Holder input;
+    @Output Float8Holder out;
+   
+    public void setup(RecordBatch b){}
+   
+    public void eval(){
+      out.value = Math.floor(input.value);
+    }
+   
+  }
 
 }
